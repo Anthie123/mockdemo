@@ -1,14 +1,30 @@
-# Compiled class file
-*.class
-
-# Log file
+# Logs
+**/logs
 *.log
 
-# BlueJ files
-*.ctxt
+# Runtime data
+**/pids
+*.pid
+*.seed
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+#Maven
+**/target
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+*.uml
+.idea/
+
+# Eclipse
+.classpath
+.settings/
+.project
+bin/
+
+# Compiled class file
+*.class
 
 # Package Files #
 *.jar
