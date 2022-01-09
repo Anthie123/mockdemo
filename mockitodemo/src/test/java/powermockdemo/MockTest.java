@@ -54,6 +54,7 @@ public class MockTest {
     verify(mock).doSomething(STRING_VALUE);
   }
 
+  
   @Test
   public void whenAndVerifyWithCallCount() {
     when(parameterMock.doSomething(STRING_VALUE))
@@ -260,8 +261,6 @@ public class MockTest {
 
       assertEquals(STRING_VALUE, MyTestClass.anotherFunction(STRING_VALUE));
     }
-
-
   }
 
 }
