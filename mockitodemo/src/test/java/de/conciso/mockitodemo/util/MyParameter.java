@@ -1,4 +1,4 @@
-package powermockdemo.util;
+package de.conciso.mockitodemo.util;
 
 public class MyParameter {
 

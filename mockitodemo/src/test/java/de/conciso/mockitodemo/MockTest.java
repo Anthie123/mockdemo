@@ -1,4 +1,4 @@
-package powermockdemo;
+package de.conciso.mockitodemo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -16,8 +16,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import powermockdemo.util.MyParameter;
-import powermockdemo.util.MyTestClass;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -29,6 +27,9 @@ import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.stubbing.Answer;
+
+import de.conciso.mockitodemo.util.MyParameter;
+import de.conciso.mockitodemo.util.MyTestClass;
 
 
 @ExtendWith(MockitoExtension.class)
