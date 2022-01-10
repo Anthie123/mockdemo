@@ -187,7 +187,7 @@ public class MockTest {
   }
 
   @Test
-  public void whenOnlinerMocks() {
+  public void whenOnelinerMocks() {
     MyParameter mock = when(mock(MyParameter.class).doSomething(STRING_VALUE))
         .thenReturn(STRING_VALUE)
         .getMock();
