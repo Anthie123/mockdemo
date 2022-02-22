@@ -10,4 +10,8 @@ public class MyTestClass {
     return value + "-anotherFunction";
   }
 
+  public String mySpecialFunction(MyParameter param, String value) {
+	    return param.doSomethingMore(value, value);
+	  }
+
 }
