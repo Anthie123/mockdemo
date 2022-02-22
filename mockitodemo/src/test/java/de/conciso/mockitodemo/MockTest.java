@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.argThat;
+import static org.mockito.ArgumentMatchers.nullable;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
@@ -83,9 +85,18 @@ public class MockTest {
     when(mock.doSomething(anyString()))
         .thenReturn(STRING_VALUE);
 
-    assertEquals(STRING_VALUE, cut.myFunction(mock, STRING_VALUE));
+    assertEquals(STRING_VALUE, cut.myFunction(mock, "test"));
+    verify(mock, times(1)).doSomething(anyString());
   }
 
+  @Test
+  public void doReturnCall() {
+	  MyParameter mock = mock(MyParameter.class);
+	  
+	  doReturn(STRING_VALUE).when(mock).doSomething(nullable(String.class));
+	  assertEquals(STRING_VALUE, cut.myFunction(mock, null));
+  }
+  
   @Test
   public void whenAndVerifyArgumentMatcher() {
     when(parameterMock.doSomething(STRING_VALUE))
@@ -160,15 +171,15 @@ public class MockTest {
 
   @Test
   public void whenWithSpy() {
-    MyParameter mock = spy(new MyParameter());
+    MyParameter spy = spy(new MyParameter());
 
-    when(mock.doSomething(STRING_VALUE))
+    when(spy.doSomething(STRING_VALUE))
         .thenReturn(STRING_VALUE);
 
-    assertEquals(STRING_VALUE, cut.myFunction(mock, STRING_VALUE));
+    assertEquals(STRING_VALUE, cut.myFunction(spy, STRING_VALUE));
 
     assertEquals(new MyParameter().doSomethingElse(STRING_VALUE),
-        mock.doSomethingElse(STRING_VALUE));
+        spy.doSomethingElse(STRING_VALUE));
 
   }
 
